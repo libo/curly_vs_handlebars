@@ -1,10 +1,10 @@
-== Curly VS FlavourSaver (handlebars)
+## Curly VS FlavourSaver (handlebars)
 
 Performance stress playground and comparison between:
 - https://github.com/zendesk/curly
 - https://github.com/jamesotron/FlavourSaver
 
-Given this simple template
+Given this simple template (valid both for Curly and Handlebars)
 ```hbs
 <h1>Hello I am Curly</h1>
 
