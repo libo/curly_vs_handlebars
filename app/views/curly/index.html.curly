@@ -1,0 +1,9 @@
+<h1>Hello I am Curly</h1>
+
+<p>
+I can do Fibonacci to 10: {{fibonacci}}
+</p>
+
+<p>
+I can do Fibonacci all the way to 20: {{fibonacci n='20'}}
+</p>

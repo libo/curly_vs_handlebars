@@ -1,0 +1,2 @@
+module HandlebarsHelper
+end
