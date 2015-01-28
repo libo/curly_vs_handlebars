@@ -1,6 +1,6 @@
 class HandlebarsController < ApplicationController
   def index
-    # presenter = Handlebars::IndexPresenter.new(self)
+    presenter = Handlebars::IndexPresenter.new(self)
 
     # I wish this was possible, it looks like it's not.
     # Damn :...-(
@@ -10,4 +10,9 @@ class HandlebarsController < ApplicationController
     text = FS::Template.new("app/views/handlebars/index.html.hbs").render(presenter)
     render(text: text)
   end
+
+  def view_context
+    Handlebars::IndexPresenter.new(super)
+  end
 end
+
