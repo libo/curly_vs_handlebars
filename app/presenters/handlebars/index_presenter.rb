@@ -1,10 +1,24 @@
-class Handlebars::IndexPresenter < Curly::Presenter
-  # If you need to assign variables to the presenter, you can use the
-  # `presents` method.
-  #
-  #   presents :foo, :bar
-  #
-  # Any public method defined in a presenter class will be available
-  # to the Curly template as a variable. Consider making these methods
-  # idempotent.
+require 'fibonacci'
+
+class Handlebars::IndexPresenter
+  def initialize(context)
+    @context = context
+  end
+
+  def fibonacci(args={n: 10})
+    Fibonacci.compute(args[:n])
+  end
+
+  def user
+    UserPresenter.new(@context.current_user)
+  end
+
+  def method_missing(method, *args, &block)
+    @context.public_send(method, *args, &block)
+  end
+
+  def respond_to_missing?(method, include_private = false)
+    @context.respond_to?(method, false)
+  end
+
 end
